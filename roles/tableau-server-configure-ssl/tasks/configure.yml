@@ -7,7 +7,7 @@
     - repository_ssl_internal_only
 
 - name: Enable repository SSL (for Tableau Server components & Tableau clients)
-  command: "{{ tableau_bin_directory }/}tsm security repository-ssl enable -u {{ tsm_admin_username }} -p {{ tsm_admin_password }}"
+  command: "{{ tableau_bin_directory }}/tsm security repository-ssl enable -u {{ tsm_admin_username }} -p {{ tsm_admin_password }}"
   when:
     - enable_repository_ssl
     - not repository_ssl_internal_only
@@ -87,7 +87,7 @@
 
 - name: Change perms of self-signed cert
   file:
-    path: {{ ssl_cert_location }}/tableau.crt
+    path: "{{ ssl_cert_location }}/tableau.crt"
     state: touch
     owner: tableau
     group: tableau

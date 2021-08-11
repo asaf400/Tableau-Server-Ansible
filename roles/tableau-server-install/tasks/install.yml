@@ -97,43 +97,6 @@
   async: 1200
   poll: 15
 
-- name: Install python2 firewall package (Required to use firewalld ansible module)
-  yum:
-    name: python-firewall
-    state: present
-  become: true
-
-- name: Start the firewalld service
-  systemd:
-    state: started
-    name: firewalld
-    enabled: yes
-  become: true
-
-- name: "Ensure Tableau Gateway port {{ tableau_http_port }} is open"
-  firewalld:
-    permanent: yes
-    port: "{{ tableau_http_port }}/tcp"
-    state: enabled
-  become: true
-
-- name: Ensure TSM port 8850 is open
-  firewalld:
-    permanent: yes
-    port: 8850/tcp
-    state: enabled
-  become: true
-
-- name: Ensure port 443 is open for SSL
-  firewalld:
-    permanent: yes
-    port: 443/tcp
-    state: enabled
-  become: true
-
-- name: Reload firewalld
-  command: "firewall-cmd --reload"
-  become: true
 
 - name: Install Tableau Server
   command: "{{ automated_installer_install_directory }}/{{ auto_install_version.stdout }}/automated-installer {{ automated_installer_args }}"
