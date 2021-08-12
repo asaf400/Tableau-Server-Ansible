@@ -20,3 +20,6 @@ DNS.{{loop.index}} = {{ dns }}
 {% for ip in ip_list %}
 IP.{{loop.index}} = {{ ip }}
 {% endfor %}
+{% if ansible_ec2_public_ipv4 is defined %}
+IP.{{loop.index}} = {{ ansible_ec2_public_ipv4 }}
+{% endif %}

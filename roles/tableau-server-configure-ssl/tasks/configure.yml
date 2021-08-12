@@ -1,5 +1,9 @@
 ---
 
+# Gather EC2 metadata facts
+- ec2_metadata_facts:
+  ignore_errors: true
+
 - name: Enable repository SSL (for Tableau Server components only)
   command: "{{ tableau_bin_directory }}/tsm security repository-ssl --internal-only enable -u {{ tsm_admin_username }} -p {{ tsm_admin_password }}"
   when:
