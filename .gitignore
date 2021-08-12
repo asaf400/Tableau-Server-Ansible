@@ -1,2 +1,3 @@
 *.retry
 ansible.log
+test.yml
