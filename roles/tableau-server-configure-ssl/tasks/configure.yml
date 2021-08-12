@@ -69,7 +69,7 @@
 - name: Copy OpenSSL Config to SSL location
   template:
     src: openssl.cnf.j2
-    dest: "{{ ssl_cert_location }}"
+    dest: "{{ ssl_cert_location }}/openssl.cnf"
     owner: tableau
     group: tableau
     mode: 0770

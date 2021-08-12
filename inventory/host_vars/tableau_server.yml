@@ -26,4 +26,4 @@ ssl_cert_location: /var/opt/tableau/tableau_server/data/ssl
 # Tableau jre directory
 tableau_jre_directory: "{{ tableau_packages_directory }}/repository.{{ tableau_build_version }}/jre"
 # Run role-level Tableau Server reboot tasks
-role_level_reboot: false
+role_level_reboot: true
